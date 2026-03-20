@@ -44,7 +44,7 @@ const Navigation = () => {
           }}
           className="font-display text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
         >
-          NS Portfolio
+          Naiteeks Portfolio
         </a>
 
         {/* Desktop Navigation */}
