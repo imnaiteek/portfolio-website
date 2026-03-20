@@ -1,129 +1,73 @@
-# Naiteek Sahare - Portfolio Website
+# Welcome to your Lovable project
 
-A modern, tech-savvy portfolio website showcasing Product Ownership, Full-Stack Development, and Digital Design expertise.
+## Project info
 
-## 🚀 Features
+**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
-- **Stunning Loading Animation** - Hexagon loader with orbiting particles
-- **Interactive Hero Section** - Floating code snippets and tech animations
-- **Profile Section** - Artistic effects with glow rings and orbiting dots
-- **Custom Cursor** - Magnetic cursor with follower effect
-- **Particle System** - Dynamic floating particles
-- **3D Card Effects** - Interactive hover animations
-- **Fully Responsive** - Mobile-first design
-- **Modern Tech Stack** - Pure HTML, CSS, JavaScript (no frameworks needed)
+## How can I edit this code?
 
-## 📁 File Structure
+There are several ways of editing your application.
 
-```
-portfolio-website/
-├── index.html          # Main website file
-├── profile.jpg         # Your profile picture
-├── README.md          # This file
-└── netlify.toml       # Netlify configuration (optional)
-```
+**Use Lovable**
 
-## 🌐 Deploy to Netlify
+Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
 
-### Option 1: Drag & Drop (Easiest)
-1. Go to [Netlify](https://app.netlify.com/drop)
-2. Drag the entire `portfolio-website` folder
-3. Your site will be live instantly!
+Changes made via Lovable will be committed automatically to this repo.
 
-### Option 2: Git Deployment
-1. Create a GitHub repository
-2. Push this folder to the repository
-3. Connect repository to Netlify
-4. Automatic deployments on every push
+**Use your preferred IDE**
 
-### Option 3: Netlify CLI
-```bash
-npm install -g netlify-cli
-cd portfolio-website
-netlify deploy --prod
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
 ```
 
-## 🎨 Customization Guide
+**Edit a file directly in GitHub**
 
-### Update Profile Picture
-The profile image is already included as `profile.jpg`. The HTML automatically uses it.
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-### Change Colors
-Edit the CSS variables in `index.html`:
-```css
-:root {
-    --accent-primary: #00d4ff;    /* Cyan */
-    --accent-secondary: #7c3aed;  /* Purple */
-    --accent-tertiary: #f97316;   /* Orange */
-}
-```
+**Use GitHub Codespaces**
 
-### Update Content
-All content is in `index.html`. Search for:
-- **Name**: Look for "Naiteek Sahare"
-- **Bio**: Under the "About Section" comment
-- **Services**: Under "Services Section" comment
-- **Experience**: Under "Experience Section" comment
-- **Skills**: Under "Skills Section" comment
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-### Update Contact Info
-In the Contact Section, update:
-- Email address
-- LinkedIn URL
-- GitHub URL
-- Social media links
+## What technologies are used for this project?
 
-## 🛠️ Technologies Used
+This project is built with:
 
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with animations
-- **JavaScript (Vanilla)** - Interactive features
-- **Google Fonts** - Inter & Space Grotesk
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-## 📱 Browser Support
+## How can I deploy this project?
 
-- ✅ Chrome (recommended)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ✅ Mobile browsers
+Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
-## 🎯 Performance
+## Can I connect a custom domain to my Lovable project?
 
-- Fast loading time (<2s)
-- Optimized animations (GPU-accelerated)
-- Responsive images
-- No external dependencies
-- Lightweight (~200KB total)
+Yes, you can!
 
-## 📝 License
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-This portfolio template is free to use for personal projects.
-
-## 🤝 Support
-
-For questions or issues:
-- Update the HTML directly
-- All styles are in `<style>` tags
-- All scripts are in `<script>` tags
-
-## 🚀 Next Steps After Deployment
-
-1. **Update Meta Tags** - Add your custom description and keywords
-2. **Add Analytics** - Google Analytics or Plausible
-3. **Custom Domain** - Connect your domain in Netlify settings
-4. **SSL Certificate** - Automatically provided by Netlify
-5. **Contact Form** - Set up form handling in Netlify
-
-## 💡 Tips
-
-- Test on multiple devices before deploying
-- Compress images for faster loading
-- Update social media links with your actual profiles
-- Add your own projects in the Featured Work section
-
----
-
-**Built with ❤️ by Naiteek Sahare**
-
-Portfolio showcasing Product Ownership, Full-Stack Development & Digital Design
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
