@@ -1,9 +1,0 @@
-name = "portfolio-website"
-compatibility_date = "2026-03-21"
-
-[observability]
-enabled = true
-
-[assets]
-directory = "./dist"
-not_found_handling = "single-page-application"

@@ -81,22 +81,24 @@ Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and 
 
 ## Deploy on Cloudflare
 
-This repo is now configured for Cloudflare Workers static assets deployment through `wrangler.toml`.
+This repo is configured for Cloudflare Workers static assets via `wrangler.jsonc` (and `wrangler` is a devDependency so CI uses a pinned CLI).
 
-Use these commands locally:
+**Do not use** `npx wrangler deploy` on CI: it can download a fresh Wrangler and run **automatic Vite setup**, which runs `npm install @cloudflare/vite-plugin` and fails on Vite 5 (`ERESOLVE`).
+
+Use Bun so the installed Wrangler + config are used:
 
 ```sh
-npm run build
-npx wrangler deploy
+bun run build
+bunx wrangler deploy --config wrangler.jsonc
 ```
 
-Recommended Cloudflare CI settings:
+Recommended Cloudflare Workers Builds settings:
 
 - Install command: `bun install --frozen-lockfile`
-- Build command: `bun run build`
-- Deploy command: `npx wrangler deploy --config wrangler.toml`
+- Build command: `bun run build` (or leave empty if your pipeline runs build during install — you must have `./dist` before deploy)
+- Deploy command: `bunx wrangler deploy --config wrangler.jsonc`
 
-Why this matters: without an existing Wrangler config, `wrangler deploy` can enter an interactive setup flow and attempt to install `@cloudflare/vite-plugin` (which conflicts with Vite 5 in this project).
+Commit **`wrangler.jsonc`** and an updated **`bun.lock`** after changing dependencies, or `bun install --frozen-lockfile` will fail in CI.
 
 ## Can I connect a custom domain to my Lovable project?
 
