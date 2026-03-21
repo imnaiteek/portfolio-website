@@ -79,6 +79,25 @@ The contact section calls the Supabase Edge Function `send-contact-email`, which
 
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
+## Deploy on Cloudflare
+
+This repo is now configured for Cloudflare Workers static assets deployment through `wrangler.toml`.
+
+Use these commands locally:
+
+```sh
+npm run build
+npx wrangler deploy
+```
+
+Recommended Cloudflare CI settings:
+
+- Install command: `bun install --frozen-lockfile`
+- Build command: `bun run build`
+- Deploy command: `npx wrangler deploy --config wrangler.toml`
+
+Why this matters: without an existing Wrangler config, `wrangler deploy` can enter an interactive setup flow and attempt to install `@cloudflare/vite-plugin` (which conflicts with Vite 5 in this project).
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
