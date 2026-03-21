@@ -60,6 +60,21 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Contact form → your email
+
+The contact section calls the Supabase Edge Function `send-contact-email`, which sends mail through [Resend](https://resend.com) and then stores a copy in the `contact_submissions` table.
+
+1. Create a [Resend](https://resend.com) account and an API key.
+2. In the [Supabase dashboard](https://supabase.com/dashboard) → **Project** → **Edge Functions** → **Secrets**, add:
+   - `RESEND_API_KEY` — your Resend API key
+   - `CONTACT_TO_EMAIL` — the inbox that should receive contact form messages (e.g. your Gmail)
+   - `RESEND_FROM_EMAIL` (optional) — verified sender, e.g. `Your Name <mail@yourdomain.com>`. If omitted, the function uses Resend’s test address `Portfolio <onboarding@resend.dev>` (only suitable for testing; [verify a domain](https://resend.com/docs/dashboard/domains/introduction) for production).
+3. Deploy the function (requires [Supabase CLI](https://supabase.com/docs/guides/cli)):  
+   `supabase functions deploy send-contact-email`
+4. Ensure the site’s env vars `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` point at the same Supabase project.
+
+`SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are provided automatically to Edge Functions; you do not set those manually.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
