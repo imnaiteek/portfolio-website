@@ -81,22 +81,26 @@ Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and 
 
 ## Deploy on Cloudflare
 
-This repo is configured for Cloudflare Workers static assets via `wrangler.jsonc` (and `wrangler` is a devDependency so CI uses a pinned CLI).
+This repo is configured for Cloudflare Workers static assets via `wrangler.jsonc`. It includes a **`build.command`** (`npm run build`) so **`wrangler deploy` creates `./dist` before upload**. That fixes deploy pipelines that only run deploy (no separate build step).
 
-**Do not use** `npx wrangler deploy` on CI: it can download a fresh Wrangler and run **automatic Vite setup**, which runs `npm install @cloudflare/vite-plugin` and fails on Vite 5 (`ERESOLVE`).
+`wrangler` is pinned in **devDependencies** so `bun install --frozen-lockfile` installs a known CLI version.
 
-Use Bun so the installed Wrangler + config are used:
+**Important:** keep **`wrangler.jsonc` committed**. If Wrangler does not find a config file, it may run automatic Vite setup and try to install `@cloudflare/vite-plugin`, which conflicts with Vite 5 (`ERESOLVE`).
+
+Local / CI examples:
 
 ```sh
-bun run build
+# Deploy only (Vite build runs inside Wrangler first)
 bunx wrangler deploy --config wrangler.jsonc
+# or, after bun install (uses the wrangler from node_modules):
+npx wrangler deploy --config wrangler.jsonc
 ```
 
 Recommended Cloudflare Workers Builds settings:
 
 - Install command: `bun install --frozen-lockfile`
-- Build command: `bun run build` (or leave empty if your pipeline runs build during install — you must have `./dist` before deploy)
-- Deploy command: `bunx wrangler deploy --config wrangler.jsonc`
+- Build command: leave empty **or** `bun run build` (optional duplicate; Wrangler already runs `npm run build` from config)
+- Deploy command: `npx wrangler deploy` or `bunx wrangler deploy --config wrangler.jsonc`
 
 Commit **`wrangler.jsonc`** and an updated **`bun.lock`** after changing dependencies, or `bun install --frozen-lockfile` will fail in CI.
 

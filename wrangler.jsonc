@@ -2,6 +2,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "portfolio-website",
   "compatibility_date": "2026-03-21",
+  "build": {
+    "command": "npm run build"
+  },
   "observability": {
     "enabled": true
   },
